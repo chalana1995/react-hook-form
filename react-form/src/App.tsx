@@ -1,7 +1,5 @@
+import Users from "./users/components/Users";
 
-
-function App() {
-  return <div>App</div>
+export function App() {
+  return <Users/>
 }
-
-export default App
