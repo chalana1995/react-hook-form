@@ -1,9 +1,23 @@
-import React from 'react'
+import { useForm } from "react-hook-form";
 
 const Users = () => {
-  return (
-    <div>Users</div>
-  )
-}
+  const {
+    register,
+    formState: { errors },
+  } = useForm<{ email: string }>({mode: 'all'});
 
-export default Users
+  return (
+    <>
+      <input
+        {...register("email", {
+          required: { value: true, message: "The Email is Required" },
+          maxLength: { value: 10, message: "Too many characters" },
+        })}
+        placeholder="Email"
+      />
+      <p>{errors.email?.message}</p>
+    </>
+  );
+};
+
+export default Users;
